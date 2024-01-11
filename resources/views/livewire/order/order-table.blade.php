@@ -1,4 +1,9 @@
 <div class="container-md">
+    <x-gt-input wire:model.live.debounce.500="search" for="search" Placeholder="Search by email or order #...">
+        <x-slot name="leadingAddon">
+            <x-gt-icon-search />
+        </x-slot>
+    </x-gt-input>
     <table>
         <thead>
             <tr>
@@ -9,7 +14,7 @@
                 <x-gt-table.th class="tar"> Amount </x-gt-table.th>
             </tr>
         </thead>
-        <tbody class="divide-y">
+        <tbody wire:loading.class="opacity-05" class="divide-y">
             @forelse($orders as $order)
                 <tr wire:key="{{ $order->id }}">
                     <td> {{ $order->number }} </td>
