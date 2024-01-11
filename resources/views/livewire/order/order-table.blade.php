@@ -6,12 +6,14 @@
     </x-gt-input>
     <table>
         <thead>
-            <tr>
-                <x-gt-table.th> Order # </x-gt-table.th>
-                <x-gt-table.th> Status </x-gt-table.th>
-                <x-gt-table.th> Customer </x-gt-table.th>
-                <x-gt-table.th> Date </x-gt-table.th>
-                <x-gt-table.th class="tar"> Amount </x-gt-table.th>
+            <x-gt-table.th wire:click="sortBy('number')" sortable
+                :direction="$this->getSortDirection('number')"> Order # </x-gt-table.th>
+            <x-gt-table.th wire:click="sortBy('status')" sortable
+                :direction="$this->getSortDirection('status')"> Status </x-gt-table.th>
+            <x-gt-table.th> Customer </x-gt-table.th>
+            <x-gt-table.th wire:click="sortBy('ordered_at')" sortable
+                :direction="$this->getSortDirection('ordered_at')"> Date </x-gt-table.th>
+            <x-gt-table.th class="tar"> Amount </x-gt-table.th>
             </tr>
         </thead>
         <tbody wire:loading.class="opacity-05" class="divide-y">
